@@ -1,5 +1,4 @@
 import type { LanguageDataProp } from '../../types/LanguageDataProp'
-import styles from './mobileLanguageGraphic.module.css'
 import Row from './Row/Row'
 
 type GraphicProps = {
