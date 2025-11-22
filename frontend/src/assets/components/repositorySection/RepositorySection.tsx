@@ -14,7 +14,7 @@ export default function RepositorySection({repository}: RepositoryProps){
     const cardsInfo = [
         {type: "Stars", value: repository.stargazers_count},
         {type: "Forks", value: repository.forks_count},
-        {type: "Watchers", value: repository.watchers_count}] 
+        {type: "Watchers", value: repository.subscribers_count}] 
     
     return (
     
