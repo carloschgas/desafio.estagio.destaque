@@ -16,21 +16,33 @@ export default function RepositorySection({repository}: RepositoryProps){
         {type: "Forks", value: repository.forks_count},
         {type: "Watchers", value: repository.watchers_count}] 
     
-    return (<>
+    return (
+    
+    <section className={styles.section}>
 
-    <h2>{repository.name}</h2>
+    <div className={styles.repositoryNameDiv}>
 
-    {cardsInfo.map(type => 
+        
+        <i className={`ri-github-fill ${styles.gitHubLogo}`}></i>
+        <h2 className={styles.h2}>{repository.name}</h2>
+    </div>
+
+    <div className={styles.sectionCards}>
+        {cardsInfo.map(type => 
         <RepositoryStatsCards 
-            key={type.type}
-            type = {type.type}
-            count = {type.value}
-            
+        key={type.type}
+        type = {type.type}
+        count = {type.value}
+        
         />
     )}
-
-    <CommitStats fullName = {repository.full_name}/>
-    <LanguageStats fullName={repository.full_name}/>
+    </div>
     
-    </>)
+    <div className={styles.sectionGraphics}>
+        <CommitStats fullName = {repository.full_name}/>
+        <LanguageStats fullName={repository.full_name}/>
+    </div>
+    
+    
+    </section>)
 }

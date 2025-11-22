@@ -1,0 +1,35 @@
+.section{
+    padding: 24px 12px;
+}
+
+.h2{
+    font-size: 32px;
+    color: var(--foreground);
+}
+
+.gitHubLogo{
+    font-size: 40px;
+    color: var(--foreground);
+}
+
+.repositoryNameDiv{
+    display: flex;
+    align-items: center;
+    height: fit-content;
+    margin-bottom: 16px;
+    gap: 5px;
+    justify-content: flex-start;
+}
+
+.sectionCards{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.sectionGraphics{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
