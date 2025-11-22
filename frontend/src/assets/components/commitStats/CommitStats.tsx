@@ -22,7 +22,7 @@ export default function CommitStats({ fullName }: CommitStatsProps) {
           weekDate.setDate(now.getDate() - (3-index) * 7);
 
           return {
-            week: weekDate.toLocaleDateString("pt-BR", { day: "2-digit", month: "short" }),
+            week: weekDate.toLocaleDateString("EN", { day: "2-digit", month: "short" }),
             commits};
 
           
@@ -36,7 +36,6 @@ export default function CommitStats({ fullName }: CommitStatsProps) {
     return (
     
     <div className={styles.card}>
-      
         <h2 className={styles.h2}>Commit Stats</h2>
        <BarChart
       style={{ width: '100%', maxWidth: '700px', maxHeight: '70vh', aspectRatio: 1.618 }}
