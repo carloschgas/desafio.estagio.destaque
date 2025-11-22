@@ -1,0 +1,19 @@
+.card{
+    background-color: var(--middle1);
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    color: var(--foreground);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.type{
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.count{
+    font-size: 16px;
+}
