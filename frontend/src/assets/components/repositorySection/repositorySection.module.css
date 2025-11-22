@@ -33,3 +33,16 @@
     flex-direction: column;
     gap: 8px;
 }
+
+
+@media (min-width:1024px) {
+    .sectionCards{
+        flex-direction: row;
+    }
+
+    .sectionGraphics{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    
+}
