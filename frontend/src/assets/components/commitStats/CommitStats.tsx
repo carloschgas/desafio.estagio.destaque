@@ -23,11 +23,13 @@ export default function CommitStats({ fullName }: CommitStatsProps) {
 
     useEffect(() => {getCommitActivity(fullName) }, [fullName])
 
-    return (<>
+    return (
+    
+    <div className={styles.card}>
+
 
         
-        <h2>Commit Stats</h2>
-        {console.log(commitsLast4Weeks)}
+        <h2 className={styles.h2}>Commit Stats</h2>
        <BarChart
       style={{ width: '100%', maxWidth: '700px', maxHeight: '70vh', aspectRatio: 1.618 }}
       responsive
@@ -38,17 +40,16 @@ export default function CommitStats({ fullName }: CommitStatsProps) {
         left: 0,
         bottom: 5,
       }}
-    >
+      >
       <CartesianGrid strokeDasharray="3 3" />
       <XAxis dataKey="week" />
       <YAxis width="auto" />
       <Tooltip />
       <Legend />
-      <Bar dataKey="commits" fill="#8884d8" activeBar={<Rectangle fill="pink" stroke="blue" />} />
+      <Bar dataKey="commits" fill="var(--middle2)"  />
     </BarChart>
 
 
 
-
-    </>)
+      </div>)
 }
