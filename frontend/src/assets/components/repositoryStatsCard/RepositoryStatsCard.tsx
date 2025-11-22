@@ -1,5 +1,4 @@
 
-import type { Repository } from "../../types/Repository"
 import styles from './repositoryStatsCard.module.css'
 
 import type { RepositoryCardProps } from "../../types/RepositoryCardProps"

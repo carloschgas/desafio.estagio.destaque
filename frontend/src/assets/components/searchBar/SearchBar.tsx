@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import styles from './searchBar.module.css'
 import type { SearchBarProps } from '../../types/SearchBarProps';
 
