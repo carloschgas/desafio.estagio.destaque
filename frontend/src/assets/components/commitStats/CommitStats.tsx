@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import styles from './commitStats.module.css'
 
 import type { CommitStatsProps } from '../../types/CommitStatsProps';
-import { BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 
 
