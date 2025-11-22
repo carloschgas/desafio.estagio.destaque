@@ -16,7 +16,17 @@ export default function CommitStats({ fullName }: CommitStatsProps) {
         const response = await fetch(url);
         const data = await response.json();
 
-        const last4 = data.all.slice(-4).map((commits:number, index:number) => ({week: 'Semana ' + (index+1), commits}))
+        const last4 = data.all.slice(-4).map((commits:number, index:number) => {
+          const now = new Date();
+          const weekDate = new Date(now);
+          weekDate.setDate(now.getDate() - (3-index) * 7);
+
+          return {
+            week: weekDate.toLocaleDateString("pt-BR", { day: "2-digit", month: "short" }),
+            commits};
+
+          
+        })
         setCommitsLast4Weeks(last4)
 
     }
@@ -26,9 +36,7 @@ export default function CommitStats({ fullName }: CommitStatsProps) {
     return (
     
     <div className={styles.card}>
-
-
-        
+      
         <h2 className={styles.h2}>Commit Stats</h2>
        <BarChart
       style={{ width: '100%', maxWidth: '700px', maxHeight: '70vh', aspectRatio: 1.618 }}
