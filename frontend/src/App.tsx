@@ -11,35 +11,45 @@ const [flag, setFlag] = useState(true);
 
 async function getRepository(query:string) {
   
-  //caso a query esteja vazia, ou seja, sem buscas, vai procurar por estrelas
-  
-  const finalQuery = query.length === 0 ? "stars:>1" : query
+  const finalQuery = query.length === 0 ? "stars:>1" : query;
 
   const params = new URLSearchParams({
     q : finalQuery,
     order: "desc",
     per_page: "1",
     sort: "stars"
-
   });
   
-  const API_URL = `https://api.github.com/search/repositories?${params.toString()}`;
+  const SEARCH_URL = `https://api.github.com/search/repositories?${params.toString()}`;
 
-  const reponse = await fetch(API_URL);
-  const data = await reponse.json()
+  const searchResponse = await fetch(SEARCH_URL);
+  const searchData = await searchResponse.json();
 
-  //o retorno da api é um array, então mesmo que eu coloque o primeiro pagination com 1 item
-  //preciso pegar o indice 0
-  setRepository(data.items[0])
+  const searchRepositoryResults = searchData.items[0];
 
-  console.log(query)
+  //pra pegar os verdadeiros watchers do repositorio tem que usar o link
+  //https://api.github.com/repos/owner/name
 
+  const detailsResponse = await fetch(searchRepositoryResults.url);  
+  const detailsRepositoryResults = await detailsResponse.json();
+
+  const repository: Repository = {
+    full_name: searchRepositoryResults.full_name,
+    name: searchRepositoryResults.name,
+    stargazers_count: searchRepositoryResults.stargazers_count,
+    forks_count: searchRepositoryResults.forks_count,
+    subscribers_count: detailsRepositoryResults.subscribers_count,
+  };
+
+  setRepository(repository);
 }
+
 
 useEffect(()=>{getRepository(query)}, [flag])
   
   return (
-    <>
+    <main>
+
       <SearchBar 
       setQuery={setQuery}
       flag = {flag}
@@ -48,7 +58,8 @@ useEffect(()=>{getRepository(query)}, [flag])
       ></SearchBar>
       {repository && <RepositorySection repository={repository}/>}
     
-    </>
+    </main>
+    
 
   )
 }
