@@ -1,0 +1,16 @@
+.row{
+    background-color: var(--middle2);
+    padding:2px;
+    border-radius: 4px;
+    height: 10px;
+}
+
+.languageInfo{
+}
+
+.rowCard{
+    color: var(--foreground);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}

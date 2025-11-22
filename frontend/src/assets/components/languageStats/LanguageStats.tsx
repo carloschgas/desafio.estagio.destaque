@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import type { LanguageStatsProps } from '../../types/LanguageStatsProps';
 import styles from './languageStats.module.css'
-import CustomActiveShapePieChart from '../PieChart/CustomActiveShapePieChart';
-
+import MobileLanguageGraphic from '../mobileLanguageGraphic/MobileLanguageGraphic';
 
 
 
@@ -45,9 +44,14 @@ export default function LanguageStats({fullName}: LanguageStatsProps ){
     
     useEffect(() => {getLanguages(fullName)}, [fullName])
 
-    return (<>
-    <h2>Language Stats</h2>
-    <CustomActiveShapePieChart data = {languagesData}></CustomActiveShapePieChart>
+    return (
+
+        <div className={styles.card}>
+
+            <h2 className={styles.h2}>Language Stats</h2>
+            
+            <MobileLanguageGraphic languageData ={languagesData}></MobileLanguageGraphic>
+        </div>
     
-    </>)
+    )
 }

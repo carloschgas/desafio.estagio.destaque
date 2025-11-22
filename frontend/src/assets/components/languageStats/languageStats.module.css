@@ -1,0 +1,11 @@
+.h2{
+    color: var(--foreground);
+    margin-bottom: 12px;
+}
+
+.card{
+    background-color: var(--middle1);
+    padding: 10px 12px;
+    border-radius: 8px;
+}
+
