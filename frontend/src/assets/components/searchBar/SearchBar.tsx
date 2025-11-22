@@ -17,9 +17,9 @@ export default function searchBar({setQuery, flag, setFlag} : SearchBarProps){
 
     
     return (
-        <form>
-            <label htmlFor="textSearch">Pesquisar Repositórios </label>
-            <input type="text" onChange={updateSearch} />
-            <button onClick={(e)=> {e.preventDefault(); updateFlag()}}>Pesquisar</button>
+        <form className={styles.form}>
+            <label className={styles.label} htmlFor="textSearch">Pesquisar Repositórios </label>
+            <input className={styles.input} type="text" onChange={updateSearch} />
+            <button className={styles.btn} onClick={(e)=> {e.preventDefault(); updateFlag()}}>Pesquisar</button>
         </form>)
 }
